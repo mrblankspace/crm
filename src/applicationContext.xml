@@ -32,8 +32,8 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.format_sql">true</prop>
+			<!--  	<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>-->
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
@@ -41,7 +41,8 @@
 		<property name="mappingResources">
 			<list>
 				<value>cn/swpu/crm/domain/User.hbm.xml</value>
-				<!--  <value>cn/swpu/crm/domain/Customer.hbm.xml</value>-->
+				<value>cn/swpu/crm/domain/Customer.hbm.xml</value>
+				<value>cn/swpu/crm/domain/BaseDict.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -53,6 +54,9 @@
 	</bean>
 	<bean id = "customerDao" class="cn.swpu.crm.dao.impl.CustomerDaoImpl">
 		<property name = "sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="baseDictDao" class="cn.swpu.crm.dao.impl.BaseDictDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
  
 	<!-- 配置事物管理器 -->

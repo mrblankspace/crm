@@ -9,10 +9,12 @@
 		</id>
 		
 		<property name="cust_name" column="cust_name"/>
-		<property name="cust_source" column="cust_source"/>
-		<property name="cust_industry" column="cust_industry"/>
-		<property name="cust_level" c1olumn="cust_level"/>
-		<property name="cust_phone" c1olumn="cust_phone"/>
-		<property name="cust_mobile" c1olumn="cust_mobile"/>
+		<property name="cust_phone" column="cust_phone"/>
+		<property name="cust_mobile" column="cust_mobile"/>
+		
+		<!-- 多对一的映射 -->
+		<many-to-one name="baseDictSource" class="cn.swpu.crm.domain.BaseDict" column="cust_source"></many-to-one>
+		<many-to-one name="baseDictIndusty" class="cn.swpu.crm.domain.BaseDict" column="cust_industy"></many-to-one>
+		<many-to-one name="baseDictLevel" class="cn.swpu.crm.domain.BaseDict" column="cust_level"></many-to-one>
 	</class>
 </hibernate-mapping>

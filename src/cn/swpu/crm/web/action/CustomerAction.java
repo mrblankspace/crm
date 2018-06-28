@@ -34,5 +34,9 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		this.customerService = customerService;
 	}
 	
+	public void save(){
+		customerService.save(customer);
+	}
+	
 	
 }
