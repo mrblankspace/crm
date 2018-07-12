@@ -15,8 +15,9 @@ public class Customer {
 	private String cust_mobile;	//移动电话
 	
 	private  BaseDict baseDictSource;
-	private  BaseDict baseDictIndusty;
+	private  BaseDict baseDictIndustry;
 	private  BaseDict baseDictLevel;
+	
 	
 	public Long getCust_id() {
 		return cust_id;
@@ -36,11 +37,11 @@ public class Customer {
 	public void setBaseDictSource(BaseDict baseDictSource) {
 		this.baseDictSource = baseDictSource;
 	}
-	public BaseDict getBaseDictIndusty() {
-		return baseDictIndusty;
+	public BaseDict getBaseDictIndustry() {
+		return baseDictIndustry;
 	}
-	public void setBaseDictIndusty(BaseDict baseDictIndusty) {
-		this.baseDictIndusty = baseDictIndusty;
+	public void setBaseDictIndustry(BaseDict baseDictIndusty) {
+		this.baseDictIndustry = baseDictIndusty;
 	}
 	public BaseDict getBaseDictLevel() {
 		return baseDictLevel;

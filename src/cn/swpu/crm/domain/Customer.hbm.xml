@@ -14,7 +14,7 @@
 		
 		<!-- 多对一的映射 -->
 		<many-to-one name="baseDictSource" class="cn.swpu.crm.domain.BaseDict" column="cust_source"></many-to-one>
-		<many-to-one name="baseDictIndusty" class="cn.swpu.crm.domain.BaseDict" column="cust_industy"></many-to-one>
+		<many-to-one name="baseDictIndustry" class="cn.swpu.crm.domain.BaseDict" column="cust_industry"></many-to-one>
 		<many-to-one name="baseDictLevel" class="cn.swpu.crm.domain.BaseDict" column="cust_level"></many-to-one>
 	</class>
 </hibernate-mapping>

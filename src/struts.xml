@@ -14,8 +14,7 @@
 		<action name="baseDict_*" class="cn.swpu.crm.web.action.BaseDictAction" method="{1}">
 		</action>
 		<action name="customer_*" class="cn.swpu.crm.web.action.CustomerAction" method="{1}">
-			<result></result>
-			<result></result>
+			<result name="findAll">/jsp/customer/list.jsp</result>
 		</action>
 	</package>
 </struts>

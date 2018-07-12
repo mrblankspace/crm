@@ -15,8 +15,7 @@
 		if(page){
 			$("#page").val(page);
 		}
-		document.customerForm.submit();
-		
+		document.customerForm.submit();		
 	}
 </SCRIPT>
 
