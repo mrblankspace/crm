@@ -23,7 +23,7 @@
 </HEAD>
 <BODY>
 	<FORM id="customerForm" name="customerForm"
-		action="${pageContext.request.contextPath }/customerServlet?method=list"
+		action="${pageContext.request.contextPath }/customer_findAll.action"
 		method=post>
 		
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
@@ -88,13 +88,13 @@
 													<TD>手机</TD>
 													<TD>操作</TD>
 												</TR>
-												<s:iterator var="c" value="list">
+												<s:iterator  value="list" var="c">
 												<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 													<TD><s:property value="#c.cust_name"/></TD>
-													<TD><s:property value="#c.cust_level"/></TD>
-													<TD><s:property value="#c.cust_source"/></TD>
-													<TD><s:property value="#c.cust_industry"/></TD>
+													<TD><s:property value="#c.baseDictLevel.dict_item_name"/></TD>
+													<TD><s:property value="#c.baseDictSource.dict_item_name"/></TD>
+													<TD><s:property value="#c.baseDictIndustry.dict_item_name"/></TD>
 													<TD><s:property value="#c.cust_phone"/></TD>
 													<TD><s:property value="#c.cust_mobile"/></TD>
 													<TD>
@@ -115,17 +115,22 @@
 												style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right">
 												共[<B>${total}</B>]条记录,[<B>${totalPage}</B>]页
 												,每页显示
-												<select name="pageSize">
+												<select name="pageSize" onchange="to_page()">
 												
-												<option value="15" <c:if test="${pageSize==1 }">selected</c:if>>1</option>
-												<option value="30" <c:if test="${pageSize==30 }">selected</c:if>>30</option>
+												<option value="3"<s:if test="pageSize==3">selected</s:if>>3 </option>
+												<option value="5" <s:if test="pageSize==5">selected</s:if>>5</option>
+												<option value="10" <s:if test="pageSize==10">selected</s:if>>10</option>
 												</select>
 												条
-												[<A href="javascript:to_page(${page-1})">前一页</A>]
-												<B>${page}</B>
-												[<A href="javascript:to_page(${page+1})">后一页</A>] 
-												到
-												<input type="text" size="3" id="page" name="page" />
+                                                <s:if test="currentPage != 1">
+												[<A href="javascript:to_page(${currentPage-1})">前一页</A>]
+												</s:if>
+                                                                                                                              当前页<b>${currentPage}</b>
+                                                 <s:if test="currentPage != totalPage">
+												[<A href="javascript:to_page(${currentPage+1})">后一页</A>] 
+												  </s:if>
+                                              到
+												<input type="text" size="3" id="page" name="currentPage" />
 												页
 												
 												<input type="button" value="Go" onclick="to_page()"/>

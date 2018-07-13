@@ -38,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService{
 		pageBean.setTotal(totalCount);
 		Double tc = totalCount.doubleValue();
 		Double num = Math.ceil(tc/pageSize);
-		pageBean.setPageSize(num.intValue());
+		pageBean.setTotalPage(num.intValue());
 		Integer begin = (currentPage-1)*pageSize;
 		List<Customer> list = customerDao.findByPage(detachedCriteria,begin,pageSize);
 		pageBean.setList(list);

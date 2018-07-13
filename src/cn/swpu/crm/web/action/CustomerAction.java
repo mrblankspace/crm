@@ -35,7 +35,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	}
 	
 	//当前页
-	private Integer currentPage = 1;
+	private Integer currentPage=1;
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
@@ -50,9 +50,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	
 
 	//页面记录数
-	private Integer pageSize = 5;
-	
-
+	private Integer pageSize=5;
 	public Integer getPageSize() {
 		return pageSize;
 	}
