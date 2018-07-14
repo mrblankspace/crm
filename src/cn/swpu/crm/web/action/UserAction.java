@@ -22,8 +22,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 		// TODO Auto-generated method stub
 		return user;
 		
-	}
-	
+	}	
 	//spring注入
 	@Autowired
 	private UserService userService;
@@ -47,7 +46,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	/**
 	 * 用户登陆方法
 	 */
-	
 	public String login(){
 		User exist = userService.login(user);
 		if(exist==null){
@@ -57,6 +55,23 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			ActionContext.getContext().getSession().put("existUser", exist);
 			return "success";
 		}
+	}
+	
+	/*
+	/**
+	 * 校验方法
+	 */
+	//@Override
+	public String validateLogin(){
+		if(user.getUser_code()==null||"".equals(user.getUser_code())){
+			super.addFieldError("userName", "用户名必须填写");
+			return "login";
+		}
+		if(user.getUser_password()==null||"".equals(user.getUser_password())){
+			super.addFieldError("pwd", "密码不能为空");
+			return "login";
+		}
+		return "success";
 	}
 
 }

@@ -38,5 +38,15 @@ public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao{
 		return (List<Customer>)this.getHibernateTemplate().findByCriteria(detachedCriteria, begin, pageSize);
 		
 	}
+	
+	public void modify(Customer customer) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().update(customer);
+	}
+
+	public void delete(Customer customer) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().delete(customer);
+	}
 
 }

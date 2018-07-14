@@ -13,4 +13,8 @@ public interface CustomerDao {
 	public int getTotalCount(DetachedCriteria detachedCriteria);
 
 	public List<Customer> findByPage(DetachedCriteria detachedCriteria, Integer begin, Integer pageSize);
+
+	public void modify(Customer customer);
+
+	public void delete(Customer customer);
 } 

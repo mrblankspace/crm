@@ -45,5 +45,17 @@ public class CustomerServiceImpl implements CustomerService{
 		//customerDao.
 		return pageBean;
 	}
+
+	@Override
+	public void modify(Customer customer) {
+		// TODO Auto-generated method stub
+		customerDao.modify(customer);
+	}
+
+	@Override
+	public void delete(Customer customer) {
+		// TODO Auto-generated method stub
+		customerDao.delete(customer);
+	}
 	
 }

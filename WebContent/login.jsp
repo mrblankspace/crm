@@ -51,14 +51,14 @@ style="LEFT: 0px; POSITION: absolute; TOP: 0px; BACKGROUND-COLOR: #0066ff"></DIV
               <TR>
                 <TD style="HEIGHT: 28px" width=80>登 录 名：</TD>
                 <TD style="HEIGHT: 28px" width=150><INPUT id=txtName 
-                  style="WIDTH: 130px" name="user_code"></TD>
+                  style="WIDTH: 130px" name="user_code"></TD><TD><span>${userName }</span></TD>
                 <TD style="HEIGHT: 28px" width=370><SPAN 
                   id=RequiredFieldValidator3 
                   style="FONT-WEIGHT: bold; VISIBILITY: hidden; COLOR: white">请输入登录名</SPAN></TD></TR>
               <TR>
                 <TD style="HEIGHT: 28px">登录密码：</TD>
                 <TD style="HEIGHT: 28px"><INPUT id=txtPwd style="WIDTH: 130px" 
-                  type=password name="user_password"></TD>
+                  type=password name="user_password"></TD><TD><span>${pwd }</span></TD>
                 <TD style="HEIGHT: 28px"><SPAN id=RequiredFieldValidator4 
                   style="FONT-WEIGHT: bold; VISIBILITY: hidden; COLOR: white">请输入密码</SPAN></TD></TR>
               <TR>

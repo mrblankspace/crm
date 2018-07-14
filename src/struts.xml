@@ -3,18 +3,26 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+
 	<!-- 配置Struts2的常量 -->
 	<constant name="struts.action.extension" value="action"/>
 	
 	<package name="crm" extends="struts-default" namespace="/">
+	<!--  	<interceptors>
+			<interceptor name="validation" class="org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor"/>
+		</interceptors>-->
 		<action name="user_*" class="cn.swpu.crm.web.action.UserAction" method="{1}">
 			<result name="login">/login.jsp</result>
 			<result name="success" type="redirect">/index.jsp</result>
+			<result name="ERROR">/login.jsp</result>
 		</action>
 		<action name="baseDict_*" class="cn.swpu.crm.web.action.BaseDictAction" method="{1}">
 		</action>
 		<action name="customer_*" class="cn.swpu.crm.web.action.CustomerAction" method="{1}">
 			<result name="findAll">/jsp/customer/list.jsp</result>
 		</action>
+		
 	</package>
+	
+	
 </struts>

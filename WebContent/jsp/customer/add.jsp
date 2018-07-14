@@ -34,7 +34,7 @@
 <BODY>
 	<FORM id=form1 name=form1
 		action="${pageContext.request.contextPath }/customer_save.action"
-		method=post>
+		method=post enctype="multipart/form-data">
 		
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
@@ -112,7 +112,11 @@
 								</td>
 							</TR>
 							
-							
+							<TR>
+                                 <td>客户资质 :</td>
+                                 <td colspan="3"><input type="file" name="upload"></td>
+
+                            </TR>
 							<tr>
 								<td rowspan=2>
 								<INPUT class=button id=sButton2 type=submit

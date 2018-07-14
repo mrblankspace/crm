@@ -1,8 +1,13 @@
 package cn.swpu.crm.web.action;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -11,6 +16,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import cn.swpu.crm.domain.Customer;
 import cn.swpu.crm.domain.PageBean;
 import cn.swpu.crm.service.CustomerService;
+import cn.swpu.crm.utils.UploadUtils;
 
 /**
  * 客户管理的action类
@@ -19,6 +25,23 @@ import cn.swpu.crm.service.CustomerService;
  */
 @Component
 public class CustomerAction extends ActionSupport implements ModelDriven<Customer>{
+	//文件上传属性
+	private String uploadFileName;
+	private File upload;
+	private String uploadContentType;
+	
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
+
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
+	public void setUploadContentType(String uploadContentType) {
+		this.uploadContentType = uploadContentType;
+	}
+
 	private Customer customer = new Customer();
 	@Override
 	public Customer getModel() {
@@ -62,7 +85,21 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	public void setCustomerService(CustomerService customerService) {
 		this.customerService = customerService;
 	}
-	public void save(){
+	public void save() throws IOException{
+		//上传图片
+		if(upload!=null){
+			String path="F:/upload";
+			String uuidFileName = UploadUtils.getUuidFileName(uploadFileName);
+			String dir = UploadUtils.getPath(uuidFileName);
+			String url = path+dir;
+			File file = new File(url);
+			if(!file.exists())
+			{
+				file.mkdirs();
+			}
+			File dictFile = new File(url+"/"+uuidFileName);
+			FileUtils.copyFile(upload, dictFile);
+		}
 		customerService.save(customer);
 	}
 	
@@ -73,6 +110,20 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		ActionContext.getContext().getValueStack().push(pageBean);//值栈？？？
 		return "findAll";	
 	}
+	
+	//修改customer
+	public void modify(){
+		customerService.modify(customer);
+	}
+
+	//删除customer
+	public String delete(){
+		customerService.delete(customer);
+		findAll();
+		return "findAll";
+	}
+	
+	
 	
 	
 }

@@ -18,6 +18,8 @@
   	<filter-name>OpenSessionInViewFilter</filter-name>
   	<url-pattern>*.action</url-pattern>
   </filter-mapping>
+  
+  
   <!-- 配置Spring的核心监听器 -->
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
