@@ -85,7 +85,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	public void setCustomerService(CustomerService customerService) {
 		this.customerService = customerService;
 	}
-	public void save() throws IOException{
+	public String save() throws IOException{
 		//上传图片
 		if(upload!=null){
 			String path="F:/upload";
@@ -99,8 +99,11 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 			}
 			File dictFile = new File(url+"/"+uuidFileName);
 			FileUtils.copyFile(upload, dictFile);
+			customer.setCust_image(url+"/"+uuidFileName);
 		}
+		
 		customerService.save(customer);
+		return "saveSuccess";
 	}
 	
 	//查询currentPage页面    

@@ -9,8 +9,7 @@ import com.sun.istack.internal.NotNull;
  */
 public class Customer {
 	private Long cust_id;
-	@NotNull
-	private String cust_name;   //客户名称
+ 	private String cust_name;   //客户名称
 	//private String cust_source; //客户信息来源
 	//private String cust_industry; //客户所属行业
 	//private String cust_level; 	//客户级别
@@ -21,7 +20,14 @@ public class Customer {
 	private  BaseDict baseDictIndustry;
 	private  BaseDict baseDictLevel;
 	
+	private String cust_image;     
 	
+	public String getCust_image() {
+		return cust_image;
+	}
+	public void setCust_image(String cust_image) {
+		this.cust_image = cust_image;
+	}
 	public Long getCust_id() {
 		return cust_id;
 	}
