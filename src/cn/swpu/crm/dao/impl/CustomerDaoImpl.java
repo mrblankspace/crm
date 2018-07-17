@@ -48,5 +48,13 @@ public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao{
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().delete(customer);
 	}
+	
+	
+	//更具id查詢客戶
+	public Customer findById(Long cust_id) {
+		Customer customer = this.getHibernateTemplate().get(Customer.class, cust_id);
+		// TODO Auto-generated method stub
+		return customer;
+	}
 
 }

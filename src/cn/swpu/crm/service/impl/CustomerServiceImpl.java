@@ -57,5 +57,11 @@ public class CustomerServiceImpl implements CustomerService{
 		// TODO Auto-generated method stub
 		customerDao.delete(customer);
 	}
+
+	@Override
+	public Customer findById(Long cust_id) {
+		// TODO Auto-generated method stub
+		return customerDao.findById(cust_id);
+	}
 	
 }

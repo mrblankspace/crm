@@ -17,4 +17,8 @@ public interface CustomerDao {
 	public void modify(Customer customer);
 
 	public void delete(Customer customer);
+
+
+
+	public Customer findById(Long cust_id);
 } 

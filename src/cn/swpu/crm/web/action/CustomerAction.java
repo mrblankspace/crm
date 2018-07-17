@@ -121,9 +121,24 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 
 	//删除customer
 	public String delete(){
+		//先查詢，再刪除
+		customer = customerService.findById(customer.getCust_id());
+		if(customer.getCust_image()!=null){
+			File file = new File(customer.getCust_image());
+			if(file.exists()){
+				file.delete();
+			}
+		}
 		customerService.delete(customer);
-		findAll();
-		return "findAll";
+		
+		return "deleteSuccess";
+	}
+	//修改方法
+	public String edit(){
+		//先查询
+		customer = customerService.findById(customer.getCust_id());  //customer已经在值栈中了\
+		ActionContext.getContext().getValueStack().push(customer);
+		return "editSuccess";
 	}
 	
 	

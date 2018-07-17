@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <TITLE>客户列表</TITLE> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
@@ -25,7 +26,8 @@
 	<FORM id="customerForm" name="customerForm"
 		action="${pageContext.request.contextPath }/customer_findAll.action"
 		method=post>
-		
+		<s:hidden name="cust_id" value="#cust_id"></s:hidden>
+		<s:hidden name="cust_image" value="#cust_image"></s:hidden>
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>
@@ -98,7 +100,7 @@
 													<TD><s:property value="#c.cust_phone"/></TD>
 													<TD><s:property value="#c.cust_mobile"/></TD>
 													<TD>
-													<a href="${pageContext.request.contextPath }/jsp/customer/edit.jsp">修改</a>
+													<a href="${pageContext.request.contextPath }/customer_edit.action?cust_id=<s:property value="cust_id"/>">修改</a>
 													&nbsp;&nbsp;
 													<a href="${pageContext.request.contextPath }/customer_delete.action?cust_id=${c.cust_id}">删除</a>
 													</TD>
