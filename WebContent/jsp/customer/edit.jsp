@@ -42,10 +42,11 @@
    
    
 	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath }/customer_save.action"
+		action="${pageContext.request.contextPath }/customer_update.action"
 		method=post enctype="multipart/form-data">
-		
-
+    <s:hidden name="cust_image" value="%{cust_image}"></s:hidden>
+    <s:hidden name="cust_id" value="%{cust_id}"></s:hidden>
+    
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>

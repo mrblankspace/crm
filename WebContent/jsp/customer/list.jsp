@@ -26,8 +26,7 @@
 	<FORM id="customerForm" name="customerForm"
 		action="${pageContext.request.contextPath }/customer_findAll.action"
 		method=post>
-		<s:hidden name="cust_id" value="#cust_id"></s:hidden>
-		<s:hidden name="cust_image" value="#cust_image"></s:hidden>
+		
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>

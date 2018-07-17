@@ -25,6 +25,7 @@
 			<result name="saveSuccess" type="redirectAction">customer_findAll.action</result>
 			<result name="deleteSuccess" type="redirectAction">customer_findAll.action</result>
 			<result name="editSuccess" >/jsp/customer/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">customer_findAll.action</result>
 			
 			<result name="input">/jsp/customer/add.jsp</result>
 			<interceptor-ref name="defaultStack"> <!-- ? -->

@@ -114,10 +114,6 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		return "findAll";	
 	}
 	
-	//修改customer
-	public void modify(){
-		customerService.modify(customer);
-	}
 
 	//删除customer
 	public String delete(){
@@ -141,7 +137,35 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		return "editSuccess";
 	}
 	
-	
+	/**
+	 * 修改客户   
+	 * 更改图片  原来有则替换
+	 * @return
+	 * @throws IOException 
+	 */
+	public String update() throws IOException{
+		if(upload!=null){
+			String origin_url = customer.getCust_image();
+			if(origin_url!=null){
+				File delete =  new File(origin_url);
+				delete.delete();
+			}
+			String path="F:/upload";
+			String uuidFileName = UploadUtils.getUuidFileName(uploadFileName);
+			String dir = UploadUtils.getPath(uuidFileName);
+			String url = path+dir;
+			File file = new File(url);
+			if(!file.exists())
+			{
+				file.mkdirs();
+			}
+			File dictFile = new File(url+"/"+uuidFileName);
+			FileUtils.copyFile(upload, dictFile);
+			customer.setCust_image(url+"/"+uuidFileName);
+		}
+		customerService.modify(customer);
+		return "updateSuccess";
+	}
 	
 	
 }
