@@ -21,7 +21,7 @@
 		},"json");
 		
 		$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action",{"dict_type_code":"001"},function(data){
-			$(data).each(function(i,n){
+			$(data).each(function(i,n){									            
 				$("#cust_industry").append("<option value="+n.dict_id+">"+n.dict_item_name+"</option>");
 			});
 			$("#cust_industry option[value=${baseDictIndustry.dict_id}]").prop("selected", "selected");
