@@ -34,7 +34,9 @@
 			</interceptor-ref>
 			
 		</action>
-		
+		<action name="linkMan_*" class="cn.swpu.crm.web.action.LinkManAction" method="{1}">
+			<result name="findAll">/jsp/linkman/list.jsp</result>
+		</action>
 	</package>
 	
 	

@@ -1,5 +1,8 @@
 package cn.swpu.crm.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.sun.istack.internal.NotNull;
 
 /**
@@ -15,13 +18,19 @@ public class Customer {
 	//private String cust_level; 	//客户级别
 	private String cust_phone;	// 固定电话
 	private String cust_mobile;	//移动电话
-	
 	private  BaseDict baseDictSource;
 	private  BaseDict baseDictIndustry;
 	private  BaseDict baseDictLevel;
+	private String cust_image;    
+	//一个客户对应多个联系人
+	private Set<LinkMan> linkMans = new HashSet<LinkMan>();
 	
-	private String cust_image;     
-	
+	public Set<LinkMan> getLinkMans() {
+		return linkMans;
+	}
+	public void setLinkMans(Set<LinkMan> linkMans) {
+		this.linkMans = linkMans;
+	}
 	public String getCust_image() {
 		return cust_image;
 	}

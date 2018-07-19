@@ -43,6 +43,7 @@
 				<value>cn/swpu/crm/domain/User.hbm.xml</value>
 				<value>cn/swpu/crm/domain/Customer.hbm.xml</value>
 				<value>cn/swpu/crm/domain/BaseDict.hbm.xml</value>
+				<value>cn/swpu/crm/domain/LinkMan.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -56,6 +57,12 @@
 		<property name = "sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean id="baseDictDao" class="cn.swpu.crm.dao.impl.BaseDictDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+
+	
+	<bean id="linkManDao" class="cn.swpu.crm.dao.impl.LinkManDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
  
