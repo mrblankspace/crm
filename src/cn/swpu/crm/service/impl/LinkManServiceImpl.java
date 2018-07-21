@@ -33,6 +33,7 @@ public class LinkManServiceImpl implements LinkManService{
 		pageBean.setTotalPage( (int)Math.ceil((double)totalCount/pageSize));
 		Integer begin=(currPage-1)*pageSize;
 		List<LinkMan> list = linkManDao.findByPage(detachedCriteria,begin, pageSize);
+		LinkMan linkMan = list.get(0);
 		pageBean.setList(list);
 		return pageBean;
 	}

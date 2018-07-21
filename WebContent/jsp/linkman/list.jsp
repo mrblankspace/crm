@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +9,7 @@
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
 	rel=stylesheet>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.11.3.min.js"></script>
 <SCRIPT language=javascript>
 	function to_page(page){
 		if(page){
@@ -86,22 +87,21 @@
 													<TD>手机</TD>
 													<TD>操作</TD>
 												</TR>
-												<c:forEach items="${list }" var="linkman">
-												<TR
+												<s:iterator value="list" var="c">
+                                              	<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-													<TD>${linkman.lkmName }</TD>
-													<TD>${linkman.lkmGender }</TD>
-													<TD>${linkman.lkmPhone }</TD>
-													<TD>${linkman.lkmMobile }</TD>
-													
+													<TD><s:property value="lkmName"/></TD>
+													<TD><s:property value="lkmGender"/></TD>
+												    <TD><s:property value="lkmMobile"/></TD>
+												    <TD><s:property value="lkmPhone"/></TD>
+                            
 													<TD>
-													<a href="${pageContext.request.contextPath }/linkmanServlet?method=edit&lkmId=${linkman.lkmId}">修改</a>
+													<a href="${pageContext.request.contextPath }/customer_edit.action?cust_id=<s:property value="cust_id"/>">修改</a>
 													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/linkmanServlet?method=delete&lkmId=${linkman.lkmId}">删除</a>
+													<a href="${pageContext.request.contextPath }/customer_delete.action?cust_id=${c.lkmId}">删除</a>
 													</TD>
 												</TR>
-												
-												</c:forEach>
+												</s:iterator>
 
 											</TBODY>
 										</TABLE>
