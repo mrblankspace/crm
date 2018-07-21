@@ -63,5 +63,12 @@ public class CustomerServiceImpl implements CustomerService{
 		// TODO Auto-generated method stub
 		return customerDao.findById(cust_id);
 	}
+
+	@Override
+	public List<Customer> findAll() {
+		// TODO Auto-generated method stub
+		
+		return customerDao.findAll();
+	}
 	
 }

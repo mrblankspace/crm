@@ -57,4 +57,11 @@ public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao{
 		return customer;
 	}
 
+	
+	public List<Customer> findAll() {
+		// TODO Auto-generated method stub
+		
+		return (List<Customer>) this.getHibernateTemplate().find("from Customer");
+	}
+
 }

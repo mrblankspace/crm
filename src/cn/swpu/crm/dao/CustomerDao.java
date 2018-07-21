@@ -19,4 +19,6 @@ public interface CustomerDao {
 	public void delete(Customer customer);
 
 	public Customer findById(Long cust_id);
+
+	public List<Customer> findAll();
 } 

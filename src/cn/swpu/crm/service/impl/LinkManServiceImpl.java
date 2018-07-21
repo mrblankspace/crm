@@ -20,7 +20,6 @@ import cn.swpu.crm.service.LinkManService;
 public class LinkManServiceImpl implements LinkManService{
 	@Autowired
 	private LinkManDao linkManDao;
-
 	@Override
 	public PageBean<LinkMan> findAll(DetachedCriteria detachedCriteria, Integer currPage, Integer pageSize) {
 		// TODO Auto-generated method stub
@@ -29,12 +28,32 @@ public class LinkManServiceImpl implements LinkManService{
 		pageBean.setPageSize(pageSize);
 		Integer totalCount = linkManDao.findCount(detachedCriteria);
 		pageBean.setTotal(totalCount);
-		
 		pageBean.setTotalPage( (int)Math.ceil((double)totalCount/pageSize));
 		Integer begin=(currPage-1)*pageSize;
 		List<LinkMan> list = linkManDao.findByPage(detachedCriteria,begin, pageSize);
 		LinkMan linkMan = list.get(0);
 		pageBean.setList(list);
 		return pageBean;
+	}
+	@Override
+	public void save(LinkMan linkMan) {
+		// TODO Auto-generated method stub
+		linkManDao.save(linkMan);
+	}
+	@Override
+	public void delete(LinkMan linkMan) {
+		// TODO Auto-generated method stub
+		linkManDao.delete(linkMan);
+	}
+
+	@Override
+	public LinkMan findById(Long lkmId) {
+		// TODO Auto-generated method stub
+		return linkManDao.findById(lkmId);
+	}
+	@Override
+	public void update(LinkMan linkMan) {
+		// TODO Auto-generated method stub
+		linkManDao.update(linkMan);
 	}
 }

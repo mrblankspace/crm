@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="crm:war exploded">
+    <output-path>E:/apache-tomcat-8.0.47/webapps/ROOT</output-path>
+    <root id="root">
+      <element id="module-output" name="crm" />
+    </root>
+  </artifact>
+</component>

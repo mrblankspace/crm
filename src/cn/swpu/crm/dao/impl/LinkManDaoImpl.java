@@ -41,5 +41,31 @@ public class LinkManDaoImpl  extends HibernateDaoSupport implements LinkManDao {
 		List<LinkMan> list = (List<LinkMan>) this.getHibernateTemplate().findByCriteria(detachedCriteria,begin,pageSize);
 		return list;
 	}
+
+
+	@Override
+	public void save(LinkMan linkMan) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().save(linkMan);
+	}
+
+
+	public void delete(LinkMan linkMan) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().delete(linkMan);
+	}
+
+
+	@Override
+	public LinkMan findById(Long lkmId) {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().get(LinkMan.class, lkmId);
+	}
+
+
+	public void update(LinkMan linkMan) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().update(linkMan);
+	}
 	
 }

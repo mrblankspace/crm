@@ -36,6 +36,11 @@
 		</action>
 		<action name="linkMan_*" class="cn.swpu.crm.web.action.LinkManAction" method="{1}">
 			<result name="findAll">/jsp/linkman/list.jsp</result>
+			<result name="saveUI">/jsp/linkman/add.jsp</result>
+			<result name="successSave" type="redirectAction">linkMan_findAll.action</result>
+			<result name="successDelete" type="redirectAction">linkMan_findAll.action</result>
+			<result name="successEdit">/jsp/linkman/edit.jsp</result>
+			<result name="successUpdate" type="redirectAction">linkMan_findAll.action</result>
 		</action>
 	</package>
 	

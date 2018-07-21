@@ -85,6 +85,10 @@
 													<TD>性别</TD>
 													<TD>办公电话</TD>
 													<TD>手机</TD>
+													<TD>邮箱</TD>
+													<TD>QQ</TD>
+													<TD>职位</TD>
+													<TD>所属客户</TD>
 													<TD>操作</TD>
 												</TR>
 												<s:iterator value="list" var="c">
@@ -94,11 +98,14 @@
 													<TD><s:property value="lkmGender"/></TD>
 												    <TD><s:property value="lkmMobile"/></TD>
 												    <TD><s:property value="lkmPhone"/></TD>
-                            
+												    <TD><s:property value="lkmEmail"/></TD>
+												    <TD><s:property value="lkmQQ"/></TD>
+												    <TD><s:property value="lkmPosition"/></TD>
+												    <TD><s:property value="customer.cust_name"/></TD>
 													<TD>
-													<a href="${pageContext.request.contextPath }/customer_edit.action?cust_id=<s:property value="cust_id"/>">修改</a>
+													<a href="${pageContext.request.contextPath }/linkMan_edit.action?lkmId=${c.lkmId}">修改</a>
 													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/customer_delete.action?cust_id=${c.lkmId}">删除</a>
+													<a href="${pageContext.request.contextPath }/linkMan_delete.action?lkmId=${c.lkmId}">删除</a>
 													</TD>
 												</TR>
 												</s:iterator>

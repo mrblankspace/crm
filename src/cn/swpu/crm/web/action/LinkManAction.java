@@ -1,5 +1,7 @@
 package cn.swpu.crm.web.action;
 
+import java.util.List;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,12 +10,16 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+import cn.swpu.crm.domain.Customer;
+
+import cn.swpu.crm.domain.LinkMan;
+import cn.swpu.crm.domain.PageBean;
+import cn.swpu.crm.service.CustomerService;
+import cn.swpu.crm.service.LinkManService;
+
 /**
  * 联系人action
  */
-import cn.swpu.crm.domain.LinkMan;
-import cn.swpu.crm.domain.PageBean;
-import cn.swpu.crm.service.LinkManService;
 @Component
 public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>{
 	private LinkMan linkMan = new LinkMan();
@@ -24,6 +30,9 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 	}
 	@Autowired
 	private LinkManService linkManService;
+	@Autowired
+	private CustomerService customerService;
+	
 	private Integer currPage=1;
 	private Integer pageSize=3;
 	public void setCurrPage(Integer currPage) {
@@ -47,5 +56,45 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 		PageBean<LinkMan> pageBean = linkManService.findAll(detachedCriteria,currPage, pageSize);
 		ActionContext.getContext().getValueStack().push(pageBean);
 		return "findAll";
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String saveUI(){
+		List<Customer> list = customerService.findAll();
+		ActionContext.getContext().getValueStack().set("list", list);
+		return "saveUI";
+	}
+	
+	/**
+	 * 保存联系人
+	 * @return
+	 */
+	public String save(){
+		linkManService.save(linkMan);
+		return  "successSave";
+	}
+	
+	/**
+	 * 删除联系人
+	 */
+	public String delete(){
+		linkManService.delete(linkMan);
+		return "successDelete";
+	}
+	
+	public String edit(){
+		List<Customer> list = customerService.findAll();
+		LinkMan man = linkManService.findById(linkMan.getLkmId());
+		ActionContext.getContext().getValueStack().set("list", list);
+		ActionContext.getContext().getValueStack().push(man);
+		return "successEdit";
+	}
+	
+	public String update(){
+		linkManService.update(linkMan);
+		return "successUpdate";
 	}
 }
