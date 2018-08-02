@@ -18,7 +18,7 @@
 		<many-to-one name="baseDictIndustry" class="cn.swpu.crm.domain.BaseDict" column="cust_industry"></many-to-one>
 		<many-to-one name="baseDictLevel" class="cn.swpu.crm.domain.BaseDict" column="cust_level"></many-to-one>
 		
-		<set name="linkMans">
+		<set name="linkMans" cascade="delete" inverse="true">
 			<key column="lkm_cust_id"/>
 			<one-to-many class="cn.swpu.crm.domain.LinkMan"/>
 		</set>

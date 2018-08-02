@@ -11,6 +11,7 @@ public class LinkMan {
 	private String lkmPosition;
 	private	String lkmMemo;
 	private Customer customer;
+
 	public Customer getCustomer() {
 		return customer;
 	}

@@ -134,7 +134,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	//删除customer
 	public String delete(){
 		//先查詢，再刪除
-		customer = customerService.findById(customer.getCust_id());
+	//	customer = customerService.findById(customer.getCust_id());
 		if(customer.getCust_image()!=null){
 			File file = new File(customer.getCust_image());
 			if(file.exists()){

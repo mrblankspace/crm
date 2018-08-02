@@ -64,7 +64,7 @@
           <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/WebContent/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
-          <root url="file://$MODULE_DIR$/WebContent/WEB-INF" relative="/" />
+          <root url="file://$MODULE_DIR$/WebContent" relative="/" />
         </webroots>
       </configuration>
     </facet>
@@ -529,6 +529,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.0.47" level="application_server_libraries" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.0.47" level="application_server_libraries" />
   </component>
 </module>

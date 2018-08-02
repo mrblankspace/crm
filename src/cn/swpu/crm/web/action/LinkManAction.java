@@ -81,6 +81,7 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 	 * 删除联系人
 	 */
 	public String delete(){
+		linkMan = linkManService.findById(linkMan.getLkmId());
 		linkManService.delete(linkMan);
 		return "successDelete";
 	}
